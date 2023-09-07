@@ -1,3 +1,15 @@
+---
+layout: default
+title: Question Three
+---
+
+<style> 
+    body { -webkit-user-select: none; /* Chrome, Safari and Opera */ 
+    -moz-user-select: none; /* Firefox */ 
+    -ms-user-select: none; /* IE and Edge */ 
+    user-select: none; /* standard syntax */ } 
+</style>
+
 ## Problem Statement: 
 
 A computer lab has `n` computers and `m` Ethernet cables. Each computer needs to be linked to another computer with a network cable for network connectivity in order to function properly. On day `p`, `s` computers stopped functioning due to a network problem, with an estimated repair cost of `d` dollars each. On top of that, there will be a daily energy loss of `e` dollars if the computers are not working. The lab has only `C` dollars left for repairing the computers.

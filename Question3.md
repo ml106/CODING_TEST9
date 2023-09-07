@@ -39,6 +39,8 @@ Store this mapping in a dictionary named `ranges_dict`. Add a new column to the 
 
 The initial DataFrame to be provided is saved in a file named `dataset.csv`.
 
+[Get The File](https://drive.google.com/file/d/1xAIEFEVRZ7SfKrkyApy7MDiWeHgYsw-Y/view?usp=sharing)
+
 Your task is to write a Python function with the following signature:
 ```python
 def process_data(file_path: str) -> pd.DataFrame:

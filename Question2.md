@@ -1,3 +1,15 @@
+---
+layout: default
+title: Question Three
+---
+
+<style> 
+    body { -webkit-user-select: none; /* Chrome, Safari and Opera */ 
+    -moz-user-select: none; /* Firefox */ 
+    -ms-user-select: none; /* IE and Edge */ 
+    user-select: none; /* standard syntax */ } 
+</style>
+
 ## Problem Statement:
 
 Let's say you are working as a system administrator in a company. You have to manage multiple servers daily. You save the information about servers for different aspects in three different files named `a.txt`, `b.txt` and `c.txt`.
