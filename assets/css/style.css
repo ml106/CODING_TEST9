@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column; /* This will arrange your header, content, and footer in a column */
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header{
+    /* Removed absolute positioning */
+    width: 100%;
+    background-color: #323741;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+}
+
+.header img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.header h1 {
+    color: #fff;
+}
+
+.footer{
+    width: 100%;
+    background-color: #323741;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8em;
+    margin-top: auto; /* This makes the footer stick to the bottom */
+}
+
+main {
+    margin: 20px auto; /* This will give 20px margin top and bottom, and auto margin left and right */
+    padding: 0 20px; /* This will give no padding top and bottom, and 20px padding left and right */
+    max-width: 80%; /* This will restrict your main content to 80% of the viewport width */
+    flex-grow: 1; /* This will allow the main content to take up remaining vertical space in the flex container */
+}
+
+code {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+}
