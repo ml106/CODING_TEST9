@@ -53,23 +53,10 @@ def process_data(file_path: str) -> pd.DataFrame:
 **Example:**
 
 You need to transform this DataFrame:
+---
+<img src="https://cdn.discordapp.com/attachments/945567352014118962/1149405340450947153/image.png" alt="input1" style="display:inline-block; height:auto;"> 
 
-ID | COL_1 | COL_2 | COL_3 | COL_4
---- | --- | --- | --- | ---
-1 | `asd34asdas` | `abc45def` | `klm76nop` | `zxc43vbn`
-2 | `jdshf23xkljj` | `zxc24poi` | `iuy35mnb` | `lkm89juh`
-3 | `@KKLNmd12*)` | `%IJKsd78@)` | `!OPQst12@#` | `&POIgh78*)`
-4 | `^#^#&*)56&*&` | `$^#87)@#` | `&^%54$#@` | `#^%)(54@$`
-1 | `klgk95SKD` | `rtz98QWE` | `xyz78RST` | `pqr12JKL`
-4 | `SBU+_)45dsfm` | `XYZ&(45ghj` | `TUV#)(23opq` | `MNO_*&45xyz`
 
 To this:
-
-| Index | ID | COL_1 | COL_2 | COL_3 | COL_4 | ANSWER | MAX_ANSWER | MAPPED_WORD | MAPPED_SENTENCE |
-|-------|----|-------|-------|-------|-------|--------|------------|-------------|-----------------|
-| 0     |  1 |    34 |    45 |    76 |    43 |     22 |         63 | GUN         | I have a GUN    |
-| 1     |  2 |    23 |    24 |    35 |    89 |     55 |         55 | FAN         | I have a FAN    |
-| 2     |  3 |    12 |    78 |    12 |    78 |     32 |         32 | DOG         | I have a DOG    |
-| 3     |  4 |    56 |    87 |    54 |    54 |     31 |         31 | DOG         | I have a DOG    |
-| 4     |  1 |    95 |    98 |    78 |    12 |     63 |         63 | GUN         | I have a GUN    |
-| 5     |  4 |    45 |    45 |    23 |    45 |     22 |         31 | DOG         | I have a DOG    |
+---
+<img src="https://cdn.discordapp.com/attachments/945567352014118962/1149405955528871996/image.png" alt="input1" style="display:inline-block; height:auto;"> 
