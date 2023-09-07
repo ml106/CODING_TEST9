@@ -54,35 +54,22 @@ def process_data(file_path: str) -> pd.DataFrame:
 
 You need to transform this DataFrame:
 
-```python
-df = pd.DataFrame(
-    {
-        'ID': [1, 2, 3, 4, 1, 4],
-        'COL_1': ['asd34asdas', 'jdshf23xkljj', '@KKLNmd12*)', '^#^#&*)56&*&', 'klgk95SKD', 'SBU+_)45dsfm'],
-        'COL_2': ['abc45def', 'zxc24poi', '%IJKsd78@)', '$^#87)@#', 'rtz98QWE', 'XYZ&(45ghj'],
-        'COL_3': ['klm76nop', 'iuy35mnb', '!OPQst12@#', '&^%54$#@', 'xyz78RST', 'TUV#)(23opq'],
-        'COL_4': ['zxc43vbn', 'lkm89juh', '&POIgh78*)', '#^%)(54@$', 'pqr12JKL', 'MNO_*&45xyz'],
-    }
-)
-```
+| Index | ID | COL_1    | COL_2    | COL_3    | COL_4    |
+|-------|----|----------|----------|----------|----------|
+| 0     |  1 | asd34asdas | abc45def | klm76nop | zxc43vbn |
+| 1     |  2 | jdshf23xkljj | zxc24poi | iuy35mnb | lkm89juh |
+| 2     |  3 | @KKLNmd12*) | %IJKsd78@) | !OPQst12@# | &POIgh78*) |
+| 3     |  4 | ^#^#&*)56&*& | $^#87)@# | &^%54$#@ | #^%)(54@$ |
+| 4     |  1 | klgk95SKD | rtz98QWE | xyz78RST | pqr12JKL |
+| 5     |  4 | SBU+_)45dsfm | XYZ&(45ghj | TUV#)(23opq | MNO_*&45xyz |
 
 To this:
 
-```python
-df = pd.DataFrame(
-    {'ID': {0: 1, 1: 2, 2: 3, 3: 4, 4: 1, 5: 4},
-     'COL_1': {0: 34, 1: 23, 2: 12, 3: 56, 4: 95, 5: 45},
-     'COL_2': {0: 45, 1: 24, 2: 78, 3: 87, 4: 98, 5: 45},
-     'COL_3': {0: 76, 1: 35, 2: 12, 3: 54, 4: 78, 5: 23},
-     'COL_4': {0: 43, 1: 89, 2: 78, 3: 54, 4: 12, 5: 45},
-     'ANSWER': {0: 22, 1: 55, 2: 32, 3: 31, 4: 63, 5: 22},
-     'MAX_ANSWER': {0: 63, 1: 55, 2: 32, 3: 31, 4: 63, 5: 31},
-     'MAPPED_WORD': {0: 'GUN', 1: 'FAN', 2: 'DOG', 3: 'DOG', 4: 'GUN', 5: 'DOG'},
-     'MAPPED_SENTENCE': {0: 'I have a GUN',
-                         1: 'I have a FAN',
-                         2: 'I have a DOG',
-                         3: 'I have a DOG',
-                         4: 'I have a GUN',
-                         5: 'I have a DOG'}}
-)
-```
+| Index | ID | COL_1 | COL_2 | COL_3 | COL_4 | ANSWER | MAX_ANSWER | MAPPED_WORD | MAPPED_SENTENCE |
+|-------|----|-------|-------|-------|-------|--------|------------|-------------|-----------------|
+| 0     |  1 |    34 |    45 |    76 |    43 |     22 |         63 | GUN         | I have a GUN    |
+| 1     |  2 |    23 |    24 |    35 |    89 |     55 |         55 | FAN         | I have a FAN    |
+| 2     |  3 |    12 |    78 |    12 |    78 |     32 |         32 | DOG         | I have a DOG    |
+| 3     |  4 |    56 |    87 |    54 |    54 |     31 |         31 | DOG         | I have a DOG    |
+| 4     |  1 |    95 |    98 |    78 |    12 |     63 |         63 | GUN         | I have a GUN    |
+| 5     |  4 |    45 |    45 |    23 |    45 |     22 |         31 | DOG         | I have a DOG    |
