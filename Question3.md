@@ -11,47 +11,78 @@ title: Question Three
 </style>
 
 ## Problem Statement:
----
 
-You are given a dataframe (**‘table_data.csv’**) with five columns: ID, CSE1, CSE2, CSE3, CSE4, and SECTION. 
+Given a dataset, you are required to process and transform the data based on the following criteria:
 
-[Get the file](https://drive.google.com/file/d/1-Ez5aLv2IynzkAR-pFpD-f5LzuPktYRL/view?usp=sharing)
+1. Extract the digits from each cells in 'COL_1', 'COL_2', 'COL_3' and 'COL_4'.
 
-- The ID represents the student's identity. 
-- The CSE1, CSE2, CSE3, and CSE4 columns represent four different subjects and contain the respective scores of students with a prefix and suffix garbage values.
-- The SECTION represents the section of students with four unique sections ('A', 'B', 'C' and 'D').
+2. Create a new column 'ANSWER' in the DataFrame by using the following formula: `ABS(COL_1 - COL_2 + COL_3 - COL_4)%100`. ABS is the absolute value and '%' denotes the modulus operation.
 
-Your task is to perform the following operations on the dataset:
+3. As the dataset contains multiple rows with the same 'ID', for each unique 'ID', find the maximum 'ANSWER' and add it to a new column 'MAX_ANSWER' in the DataFrame.
 
-1. **Data Cleansing:** Clean the marks present in the CSE1, CSE2, CSE3, and CSE4 columns by removing the prefixed and suffixed garbage values and ensure they are numeric.
+4. Next, map the values in 'MAX_ANSWER' to a word based on their range in the provided mapping. The word mapping is described below: 
 
-2. **Average Calculation:** Calculate the average mark of each student across the four subjects (CSE1-4). Store this average in a new dataframe column, 'AVG_MARK'.
+    "ANT": corresponds to values from 1 to 10 (inclusive),
+    "BUS": corresponds to values from 11 to 20 (inclusive),
+    "CAT": corresponds to values from 21 to 30 (inclusive),
+    "DOG": corresponds to values from 31 to 40 (inclusive),
+    "EGG": corresponds to values from 41 to 50 (inclusive),
+    "FAN": corresponds to values from 51 to 60 (inclusive),
+    "GUN": corresponds to values from 61 to 70 (inclusive),
+    "HAT": corresponds to values from 71 to 80 (inclusive),
+    "ICE": corresponds to values from 81 to 90 (inclusive),
+    "JAR": corresponds to values from 91 to 100 (inclusive)
 
-3. **Grade Assignment:** Based on the student's 'AVG_MARK', assign a corresponding grade. The grade determination criteria is as follows:
-    - 0 <= 'AVG_MARK' <= 29, assign 'F'
-    - 30 <= 'AVG_MARK' <= 49, assign 'D'
-    - 50 <= 'AVG_MARK' <= 69, assign 'C'
-    - 70 <= 'AVG_MARK' <= 79, assign 'B'
-    - 80 <= 'AVG_MARK' <= 89, assign 'A-'
-    - 90 <= 'AVG_MARK' <= 100, assign 'A'
-    
-    Store these grades in a new DataFrame column 'GRADE'.
+Store this mapping in a dictionary named `ranges_dict`. Add a new column to the DataFrame 'MAPPED_WORD', which contains the word corresponding to the 'MAX_ANSWER' value for that row based on the provided mapping.
 
-4. **Highest and Lowest Marked Subjects:** Find the highest and lowest marked subject for each student. Create two new columns, 'LOWEST_MARKED_SUBJECT' and 'HIGHEST_MARKED_SUBJECT', and store the name of the respective subject in these columns for each student.
+5. Lastly, generate a sentence `'I have a/an MAPPED_WORD'` for each row and add these sentences to a new column 'MAPPED_SENTENCE' in the DataFrame.
 
-5. **Section-Wise Highest Average Mark:** Make a new column named "MAX_AVG_MARK_SECTION" and assign the highest mark based on each section to the rows.
+The initial DataFrame to be provided is saved in a file named `dataset.csv`.
 
-**Note:**
+Your task is to write a Python function with the following signature:
+```python
+def process_data(file_path: str) -> pd.DataFrame:
+```
 
-- Make sure to handle any potential exceptions or errors in the dataset during the execution of the above tasks.
-- Comment your code appropriately for better understanding.
-- Your solution should have optimal time and space complexity.
-- Submit the updated csv file
+**Input:**
+- file_path : str : Path to the input csv file `dataset.csv`.
 
+**Output:**
+- pd.DataFrame : The processed DataFrame with new columns 'ANSWER', 'MAX_ANSWER', 'MAPPED_WORD' and 'MAPPED_SENTENCE'.
 
----
+**Example:**
 
-### Input Demo
-<img src="https://cdn.discordapp.com/attachments/945567201518317581/1149026039280959518/image.png" alt="input1" style="display:inline-block; height:auto;"> 
-### Output Demo
-<img src="https://cdn.discordapp.com/attachments/945567201518317581/1149025986264977498/image.png" alt="output" style="display:inline-block; height:auto;">
+You need to transform this DataFrame:
+
+```python
+df = pd.DataFrame(
+    {
+        'ID': [1, 2, 3, 4, 1, 4],
+        'COL_1': ['asd34asdas', 'jdshf23xkljj', '@KKLNmd12*)', '^#^#&*)56&*&', 'klgk95SKD', 'SBU+_)45dsfm'],
+        'COL_2': ['abc45def', 'zxc24poi', '%IJKsd78@)', '$^#87)@#', 'rtz98QWE', 'XYZ&(45ghj'],
+        'COL_3': ['klm76nop', 'iuy35mnb', '!OPQst12@#', '&^%54$#@', 'xyz78RST', 'TUV#)(23opq'],
+        'COL_4': ['zxc43vbn', 'lkm89juh', '&POIgh78*)', '#^%)(54@$', 'pqr12JKL', 'MNO_*&45xyz'],
+    }
+)
+```
+
+To this:
+
+```python
+df = pd.DataFrame(
+    {'ID': {0: 1, 1: 2, 2: 3, 3: 4, 4: 1, 5: 4},
+     'COL_1': {0: 34, 1: 23, 2: 12, 3: 56, 4: 95, 5: 45},
+     'COL_2': {0: 45, 1: 24, 2: 78, 3: 87, 4: 98, 5: 45},
+     'COL_3': {0: 76, 1: 35, 2: 12, 3: 54, 4: 78, 5: 23},
+     'COL_4': {0: 43, 1: 89, 2: 78, 3: 54, 4: 12, 5: 45},
+     'ANSWER': {0: 22, 1: 55, 2: 32, 3: 31, 4: 63, 5: 22},
+     'MAX_ANSWER': {0: 63, 1: 55, 2: 32, 3: 31, 4: 63, 5: 31},
+     'MAPPED_WORD': {0: 'GUN', 1: 'FAN', 2: 'DOG', 3: 'DOG', 4: 'GUN', 5: 'DOG'},
+     'MAPPED_SENTENCE': {0: 'I have a GUN',
+                         1: 'I have a FAN',
+                         2: 'I have a DOG',
+                         3: 'I have a DOG',
+                         4: 'I have a GUN',
+                         5: 'I have a DOG'}}
+)
+```

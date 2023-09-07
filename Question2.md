@@ -34,7 +34,7 @@ def server_info_to_df() -> pd.DataFrame:
  
 ### Example
 
-Notice: Consider having the required `a.txt`, `b.txt` and `c.txt` files in the same directory where you are running your python script.
+Notice: Consider having the required [a.txt](https://raw.githubusercontent.com/ml106/CODING_TEST9/main/example_files/a.txt), [b.txt](https://raw.githubusercontent.com/ml106/CODING_TEST9/main/example_files/b.txt) and [c.txt](https://raw.githubusercontent.com/ml106/CODING_TEST9/main/example_files/c.txt) files in the same directory where you are running your python script.
 
 **Call**
 ```python
