@@ -54,14 +54,14 @@ def process_data(file_path: str) -> pd.DataFrame:
 
 You need to transform this DataFrame:
 
-| Index | ID | COL_1    | COL_2    | COL_3    | COL_4    |
-|-------|----|----------|----------|----------|----------|
-| 0     |  1 | asd34asdas | abc45def | klm76nop | zxc43vbn |
-| 1     |  2 | jdshf23xkljj | zxc24poi | iuy35mnb | lkm89juh |
-| 2     |  3 | @KKLNmd12*) | %IJKsd78@) | !OPQst12@# | &POIgh78*) |
-| 3     |  4 | ^#^#&*)56&*& | $^#87)@# | &^%54$#@ | #^%)(54@$ |
-| 4     |  1 | klgk95SKD | rtz98QWE | xyz78RST | pqr12JKL |
-| 5     |  4 | SBU+_)45dsfm | XYZ&(45ghj | TUV#)(23opq | MNO_*&45xyz |
+ID | COL_1 | COL_2 | COL_3 | COL_4
+--- | --- | --- | --- | ---
+1 | `asd34asdas` | `abc45def` | `klm76nop` | `zxc43vbn`
+2 | `jdshf23xkljj` | `zxc24poi` | `iuy35mnb` | `lkm89juh`
+3 | `@KKLNmd12*)` | `%IJKsd78@)` | `!OPQst12@#` | `&POIgh78*)`
+4 | `^#^#&*)56&*&` | `$^#87)@#` | `&^%54$#@` | `#^%)(54@$`
+1 | `klgk95SKD` | `rtz98QWE` | `xyz78RST` | `pqr12JKL`
+4 | `SBU+_)45dsfm` | `XYZ&(45ghj` | `TUV#)(23opq` | `MNO_*&45xyz`
 
 To this:
 
