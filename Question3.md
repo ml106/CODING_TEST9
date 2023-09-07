@@ -22,16 +22,16 @@ Given a dataset, you are required to process and transform the data based on the
 
 4. Next, map the values in 'MAX_ANSWER' to a word based on their range in the provided mapping. The word mapping is described below: 
 
-    "ANT": corresponds to values from 1 to 10 (inclusive),
-    "BUS": corresponds to values from 11 to 20 (inclusive),
-    "CAT": corresponds to values from 21 to 30 (inclusive),
-    "DOG": corresponds to values from 31 to 40 (inclusive),
-    "EGG": corresponds to values from 41 to 50 (inclusive),
-    "FAN": corresponds to values from 51 to 60 (inclusive),
-    "GUN": corresponds to values from 61 to 70 (inclusive),
-    "HAT": corresponds to values from 71 to 80 (inclusive),
-    "ICE": corresponds to values from 81 to 90 (inclusive),
-    "JAR": corresponds to values from 91 to 100 (inclusive)
+    * "ANT": corresponds to values from 1 to 10 (inclusive),
+    * "BUS": corresponds to values from 11 to 20 (inclusive),
+    * "CAT": corresponds to values from 21 to 30 (inclusive),
+    * "DOG": corresponds to values from 31 to 40 (inclusive),
+    * "EGG": corresponds to values from 41 to 50 (inclusive),
+    * "FAN": corresponds to values from 51 to 60 (inclusive),
+    * "GUN": corresponds to values from 61 to 70 (inclusive),
+    * "HAT": corresponds to values from 71 to 80 (inclusive),
+    * "ICE": corresponds to values from 81 to 90 (inclusive),
+    * "JAR": corresponds to values from 91 to 100 (inclusive)
 
 Store this mapping in a dictionary named `ranges_dict`. Add a new column to the DataFrame 'MAPPED_WORD', which contains the word corresponding to the 'MAX_ANSWER' value for that row based on the provided mapping.
 
