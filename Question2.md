@@ -1,49 +1,51 @@
----
-layout: default
-title: Question Two
----
-
-<style> 
-    body { -webkit-user-select: none; /* Chrome, Safari and Opera */ 
-    -moz-user-select: none; /* Firefox */ 
-    -ms-user-select: none; /* IE and Edge */ 
-    user-select: none; /* standard syntax */ } 
-</style>
-
 ## Problem Statement:
----
-Given a folder containing text files, write a Python function that traverses through each file in the folder and calculates a final sum. Each file contains numbers paired with the following character signs:
 
-- `a` or `+` denotes addition
-- `s` or `-` denotes subtraction
-- `m` or `*` denotes multiplication
+Let's say you are working as a system administrator in a company. You have to manage multiple servers daily. You save the information about servers for different aspects in three different files named `a.txt`, `b.txt` and `c.txt`.
 
-The number and its corresponding operation are represented as a string e.g. `a20`, `s10`, `*.5`, where `a`, `s`, and `m` or `+`, `-`, `*` represent the operation (addition, subtraction, multiplication respectively), and the numbers following these characters represent operands. 
+- The text file `a.txt` has information about the Server ID and Server Name. The first line contains the Server ID, and the second line contains the Server Name. The third line again contains the next Server ID and so on. (i.e. There might be empty
+space between lines which you don't have to consider.)
 
-The function should perform the corresponding mathematical operation for each file, based on the given operation sign and operand, thereby producing a final sum for each file. If a file contains the name of another file, the final sum of the initial file should also include the summation of the file it has referenced.
+- The text file `b.txt` contains information about the Server runtime in hours. Each line contains information in the format `Server was running for = x_y hours`, where `x` denotes the hours the server was running and `y` represents the Server ID.
+There might be information regarding other server as well which you don't have to consider if it not necessary.
 
-Your task is to write a Python function that calculates the final sum for each file and returns the overall value for all files combined in the folder. 
+- The text file `c.txt` has records about the cost per hour for each server. Every line contains information in the format `Server z's per hour running cost = w`, where `z` represents the Server ID and `w` is the cost per hour for that server.
+There might be information regarding other server as well which you don't have to consider if it not necessary.
 
-Please note that each individual file does not contain any whitespace characters or empty lines, and all files are well-formatted, containing only valid operations (`a`, `s`, `m`, `+`, `-`, `*`) followed by a valid number (positive floating point or integer). 
+You are given the task to write a Python function that will read those txt files and create a consolidated pandas DataFrame containing SERVER_ID, SERVER_NAME, TOTAL_SERVER_RUNTIME, TOTAL_COST.
 
-Assume that folder structure can be at one level only, i.e., there are no folders inside another folder and there is no deadlock.
+**Function Signature:** 
 
-Additionally, remember to handle potential file and I/O exceptions in case a referenced file does not exist or cannot be read. 
+```python
+def server_info_to_df() -> pd.DataFrame:
+```
 
-The solution should be modular, well-structured and the code should be commented wherever necessary.
+**Input:** 
 
----
+- No input is required for this function. However, it will read data from text files `a.txt`, `b.txt` and `c.txt`.
 
-**Example**:
-2 files [a.txt](https://raw.githubusercontent.com/ml106/CODING_TESTS/main/example_files/a.txt) and [b.txt](https://raw.githubusercontent.com/ml106/CODING_TESTS/main/example_files/b.txt) are as follows:
+**Output:** 
 
-| a.txt | b.txt |
-|-------|-------|
-| a5    | a5    |
-| -3    | m2    |
-| b.txt |       
+- The function should return a pandas DataFrame object.
+- The DataFrame should contain the following columns:
+    - SERVER_ID: The ID for each server. 
+    - SERVER_NAME: The name for each server.
+    - TOTAL_SERVER_RUNTIME: The total number of hours each server was running.
+    - TOTAL_COST: The total cost for running each server.
+ 
+### Example
 
-**Output**:
-``{'a': 12.0, 'b': 10.0}`` 
-a dictionary containing filenames as keys and their corresponding sums as the values.
+Notice: Consider having the required `a.txt`, `b.txt` and `c.txt` files in the same directory where you are running your python script.
 
+**Call**
+```python
+df = server_info_to_df()
+print(df)
+```
+
+**Output**
+```python
+   SERVER_ID SERVER_NAME  TOTAL_SERVER_RUNTIME  TOTAL_COST
+0          1         abc                    16         40.0
+1          2         dfg                    25        100.0
+2          3         efg                     3         69.0
+```

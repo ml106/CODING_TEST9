@@ -1,0 +1,5 @@
+Server 1's per hour running cost = 2.5
+Server 2's per hour running cost = 4
+Server 3's per hour running cost = 23
+Server 4's per hour running cost = 5.4
+Server 5's per hour running cost = 12
