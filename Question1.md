@@ -3,12 +3,7 @@ layout: default
 title: Question One
 ---
 
-<style> 
-    body { -webkit-user-select: none; /* Chrome, Safari and Opera */ 
-    -moz-user-select: none; /* Firefox */ 
-    -ms-user-select: none; /* IE and Edge */ 
-    user-select: none; /* standard syntax */ } 
-</style>
+
 
 ## Problem Statement: 
 
